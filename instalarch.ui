@@ -13,7 +13,7 @@
     <property name="can_focus">False</property>
     <property name="icon_name">go-next</property>
   </object>
-  <object class="GtkWindow">
+  <object class="GtkWindow" id="win">
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
     <property name="default_width">900</property>
@@ -286,16 +286,17 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkComboBoxText">
+                          <object class="GtkComboBoxText" id="cmbb">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="active">0</property>
                             <items>
-                              <item translatable="yes">Español</item>
-                              <item translatable="yes">Inglés</item>
-                              <item translatable="yes">Italiano</item>
-                              <item translatable="yes">Francés</item>
-                              <item translatable="yes">Portugués</item>
-                              <item translatable="yes">Cheems</item>
+                              <item id="es" translatable="yes">Español</item>
+                              <item id="en" translatable="yes">Inglés</item>
+                              <item id="it" translatable="yes">Italiano</item>
+                              <item id="fr" translatable="yes">Francés</item>
+                              <item id="pt" translatable="yes">Portugués</item>
+                              <item id="cheems" translatable="yes">Cheems</item>
                             </items>
                           </object>
                           <packing>
@@ -390,6 +391,72 @@
                     <property name="name">timezone</property>
                     <property name="title" translatable="yes">Zona Horaria</property>
                     <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">20</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">label</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="homogeneous">True</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">label</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="name">page1</property>
+                    <property name="title" translatable="yes">page1</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
