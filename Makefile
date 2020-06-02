@@ -5,7 +5,7 @@ LIBS = $(shell $(PKGCONFIG) --libs gtk+-3.0)
 SRC = src/main.c
 OBJS = src/main.o
 
-all: main
+all: clean main
 
 %.o: %.c
 	$(CC) -c -o $(OBJS) $(CFLAGS) $<
