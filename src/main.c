@@ -6,19 +6,36 @@ GtkApplication *app;
 GtkBuilder     *builder;
 
 GtkWindow        *window;
-GtkButton        *exitBtn;
 GtkMessageDialog *exitDialog;
+GtkStack         *stack;
+GtkButton        *backBtn, *nextBtn, *exitBtn;
+
+const gchar *stackPages[] = { "welcome", "language", "disk" };
+
+void switchPage(GtkButton *btn, gpointer dir) {
+  const gchar *page = gtk_stack_get_visible_child_name(stack);
+  const gchar *btnName = gtk_widget_get_name((GtkWidget*) btn);
+  gint iter = 0;
+
+  for (iter; iter < G_N_ELEMENTS(stackPages); iter++) {
+    if (g_strcmp0(page, stackPages[iter]) == 0) {
+      if (g_strcmp0(btnName, "backBtn") == 0) gtk_stack_set_visible_child_name(stack, stackPages[iter - 1]);
+      if (g_strcmp0(btnName, "nextBtn") == 0) gtk_stack_set_visible_child_name(stack, stackPages[iter + 1]);
+    }
+  }
+}
 
 void exitBtn_clicked(GtkButton *btn, gpointer data) {
-  exitDialog = GTK_MESSAGE_DIALOG(gtk_builder_get_object(builder, "exitDialog"));
+  exitDialog = (GtkMessageDialog*) gtk_builder_get_object(builder, "exitDialog");
   int res = gtk_dialog_run(GTK_DIALOG(exitDialog));
 
   switch (res) {
     case GTK_RESPONSE_OK:
-      g_application_quit(G_APPLICATION(app));
+      g_application_quit((GApplication*) app);
       break;
+    case GTK_RESPONSE_DELETE_EVENT:
     case GTK_RESPONSE_CANCEL:
-      gtk_widget_hide(GTK_WIDGET(exitDialog));
+      gtk_widget_hide((GtkWidget*) exitDialog);
       break;
     default:
       printf("No action for %d\n", res);
@@ -27,12 +44,18 @@ void exitBtn_clicked(GtkButton *btn, gpointer data) {
 }
 
 void appActivate(GtkApplication *app, gpointer data) {
-  builder = GTK_BUILDER(gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui"));
-  window = GTK_WINDOW(gtk_builder_get_object(builder, "window"));
-  exitBtn = GTK_BUTTON(gtk_builder_get_object(builder, "exitBtn"));
-  g_signal_connect(exitBtn, "clicked", G_CALLBACK(exitBtn_clicked), NULL);
+  builder = (GtkBuilder*) gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui");
+  window  = (GtkWindow*)  gtk_builder_get_object(builder, "window");
+  exitBtn = (GtkButton*)  gtk_builder_get_object(builder, "exitBtn");
+  backBtn = (GtkButton*)  gtk_builder_get_object(builder, "backBtn");
+  nextBtn = (GtkButton*)  gtk_builder_get_object(builder, "nextBtn");
+  stack   = (GtkStack*)   gtk_builder_get_object(builder, "stack");
 
-  gtk_widget_show_all(GTK_WIDGET(window));
+  g_signal_connect(exitBtn, "clicked", (GCallback) exitBtn_clicked, NULL);
+  g_signal_connect(backBtn, "clicked", (GCallback) switchPage, NULL);
+  g_signal_connect(nextBtn, "clicked", (GCallback) switchPage, NULL);
+
+  gtk_widget_show_all((GtkWidget*) window);
   gtk_application_add_window(app, window);
 }
 
@@ -40,8 +63,9 @@ int main(int argc, char **argv) {
   int status;
 
   app = gtk_application_new("com.github.M1que4s.Instalarch", G_APPLICATION_FLAGS_NONE);
-  g_signal_connect(app, "activate", G_CALLBACK(appActivate), NULL);
-  status = g_application_run(G_APPLICATION(app), argc, argv);
+  g_signal_connect(app, "activate", (GCallback) appActivate, NULL);
+
+  status = g_application_run((GApplication*) app, argc, argv);
   g_object_unref(app);
 
   return status;
