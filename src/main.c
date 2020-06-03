@@ -1,4 +1,5 @@
 #include <gtk/gtk.h>
+#include <vte/vte.h>
 #define _(String) gettext(String)
 #define N_(String) String
 
@@ -9,8 +10,11 @@ GtkWindow        *window;
 GtkMessageDialog *exitDialog;
 GtkStack         *stack;
 GtkButton        *backBtn, *nextBtn, *exitBtn;
+GtkViewport      *termView;
+VteTerminal      *term;
+VtePty           *pty;
 
-const gchar *stackPages[] = { "welcome", "language", "disk" };
+const gchar *stackPages[] = { "welcome", "language", "disk", "terminal" };
 
 void switchPage(GtkButton *btn, gpointer dir) {
   const gchar *page = gtk_stack_get_visible_child_name(stack);
@@ -43,17 +47,30 @@ void exitBtn_clicked(GtkButton *btn, gpointer data) {
   }
 }
 
+void spawnShell(VteTerminal *term, gint status, gpointer data) {
+  char **termEnvv = g_get_environ();
+  char **termArgv = (char *[]) { getenv("SHELL"), NULL };
+  vte_terminal_spawn_async(term, VTE_PTY_DEFAULT, NULL, termArgv, NULL, G_SPAWN_DEFAULT,
+                           NULL, NULL, NULL, -1, NULL, NULL, NULL);
+}
+
 void appActivate(GtkApplication *app, gpointer data) {
-  builder = (GtkBuilder*) gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui");
-  window  = (GtkWindow*)  gtk_builder_get_object(builder, "window");
-  exitBtn = (GtkButton*)  gtk_builder_get_object(builder, "exitBtn");
-  backBtn = (GtkButton*)  gtk_builder_get_object(builder, "backBtn");
-  nextBtn = (GtkButton*)  gtk_builder_get_object(builder, "nextBtn");
-  stack   = (GtkStack*)   gtk_builder_get_object(builder, "stack");
+  builder  = (GtkBuilder*)  gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui");
+  window   = (GtkWindow*)   gtk_builder_get_object(builder, "window");
+  exitBtn  = (GtkButton*)   gtk_builder_get_object(builder, "exitBtn");
+  backBtn  = (GtkButton*)   gtk_builder_get_object(builder, "backBtn");
+  nextBtn  = (GtkButton*)   gtk_builder_get_object(builder, "nextBtn");
+  stack    = (GtkStack*)    gtk_builder_get_object(builder, "stack");
+  termView = (GtkViewport*) gtk_builder_get_object(builder, "termView");
+  term     = (VteTerminal*) vte_terminal_new();
+  spawnShell(term, 0, NULL);
+
+  gtk_container_add((GtkContainer*) termView, (GtkWidget*) term);
 
   g_signal_connect(exitBtn, "clicked", (GCallback) exitBtn_clicked, NULL);
   g_signal_connect(backBtn, "clicked", (GCallback) switchPage, NULL);
   g_signal_connect(nextBtn, "clicked", (GCallback) switchPage, NULL);
+  g_signal_connect(term, "child-exited", (GCallback) spawnShell, NULL);
 
   gtk_widget_show_all((GtkWidget*) window);
   gtk_application_add_window(app, window);

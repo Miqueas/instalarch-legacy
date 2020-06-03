@@ -192,7 +192,7 @@
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
                 <property name="label" translatable="yes">&lt;span font_weight="bold"&gt;Visita: &lt;a href="https://t.me/ArchLinuxCristo"&gt;t.me/ArchLinuxCristo&lt;/a&gt;&lt;/span&gt;</property>
                 <property name="use_markup">True</property>
                 <property name="use_underline">True</property>
@@ -232,6 +232,8 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">40</property>
+                <property name="margin_right">40</property>
                 <property name="margin_start">40</property>
                 <property name="margin_end">40</property>
                 <property name="margin_top">40</property>
@@ -398,6 +400,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
                 <property name="margin_start">20</property>
                 <property name="margin_end">20</property>
                 <property name="active">True</property>
@@ -449,8 +453,11 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
                 <property name="margin_start">20</property>
                 <property name="margin_end">20</property>
+                <property name="active">True</property>
                 <property name="draw_indicator">True</property>
                 <child>
                   <object class="GtkBox">
@@ -512,6 +519,56 @@
             <property name="name">disk</property>
             <property name="title" translatable="yes">Discos</property>
             <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="termBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">20</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Progreso de la instalación&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="shadow_type">in</property>
+                <property name="propagate_natural_width">True</property>
+                <property name="propagate_natural_height">True</property>
+                <child>
+                  <object class="GtkViewport" id="termView">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="name">terminal</property>
+            <property name="title" translatable="yes">Terminal</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>
