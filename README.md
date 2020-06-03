@@ -1,3 +1,11 @@
+# Uso
+
+```
+make clean
+make
+./main
+```
+
 # ¿Qué es esto?
 
 Instalarch es un asistente de instalación gráfico para Arch Linux. El estado actual del
@@ -10,3 +18,4 @@ Actualmente, el proyecto se está llevando a cabo por 2 personas:
 
  * CodigoCristo (@CodigoCristo, desarrollador líder)
  * Miqueas Martinez (@M1que4s, diseño de interfaz)
+ 
