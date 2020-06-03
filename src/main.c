@@ -48,7 +48,6 @@ void exitBtn_clicked(GtkButton *btn, gpointer data) {
 }
 
 void spawnShell(VteTerminal *term, gint status, gpointer data) {
-  char **termEnvv = g_get_environ();
   char **termArgv = (char *[]) { getenv("SHELL"), NULL };
   vte_terminal_spawn_async(term, VTE_PTY_DEFAULT, NULL, termArgv, NULL, G_SPAWN_DEFAULT,
                            NULL, NULL, NULL, -1, NULL, NULL, NULL);
