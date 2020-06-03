@@ -1,22 +1,23 @@
 #include <gtk/gtk.h>
 #include <vte/vte.h>
-#define _(String) gettext(String)
-#define N_(String) String
 
-GtkApplication *app;
-GtkBuilder     *builder;
-
+GtkApplication   *app;
+GtkBuilder       *builder;
 GtkWindow        *window;
 GtkMessageDialog *exitDialog;
-GtkStack         *stack;
+GtkStack         *stack, *deskImgStack;
 GtkButton        *backBtn, *nextBtn, *exitBtn;
 GtkViewport      *termView;
+GtkHeaderBar     *header;
+GtkListBox       *deskImgSwitcher;
+GtkListBoxRow    *deskRow1, *deskRow2, *deskRow3;
 VteTerminal      *term;
 VtePty           *pty;
 
-const gchar *stackPages[] = { "welcome", "language", "disk", "terminal" };
+const gchar *stackPages[] = { "welcome", "language", "disk", "partitions", "user",
+                              "desktop", "software", "extras", "terminal", "end" };
 
-void switchPage(GtkButton *btn, gpointer dir) {
+void mainPageSwitcher(GtkButton *btn, gpointer dir) {
   const gchar *page = gtk_stack_get_visible_child_name(stack);
   const gchar *btnName = gtk_widget_get_name((GtkWidget*) btn);
   gint iter = 0;
@@ -27,6 +28,14 @@ void switchPage(GtkButton *btn, gpointer dir) {
       if (g_strcmp0(btnName, "nextBtn") == 0) gtk_stack_set_visible_child_name(stack, stackPages[iter + 1]);
     }
   }
+}
+
+void deskImgOnSwitch(GtkListBox *box, GtkListBoxRow *row, gpointer data) {
+  const gchar *rowName = gtk_widget_get_name((GtkWidget*) row);
+
+  if (g_strcmp0(rowName, "deskRow1") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "deskRow1");
+  } else if (g_strcmp0(rowName, "deskRow2") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "deskRow2");
+  } else if (g_strcmp0(rowName, "deskRow3") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "deskRow3"); }
 }
 
 void exitBtn_clicked(GtkButton *btn, gpointer data) {
@@ -54,21 +63,28 @@ void spawnShell(VteTerminal *term, gint status, gpointer data) {
 }
 
 void appActivate(GtkApplication *app, gpointer data) {
-  builder  = (GtkBuilder*)  gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui");
-  window   = (GtkWindow*)   gtk_builder_get_object(builder, "window");
-  exitBtn  = (GtkButton*)   gtk_builder_get_object(builder, "exitBtn");
-  backBtn  = (GtkButton*)   gtk_builder_get_object(builder, "backBtn");
-  nextBtn  = (GtkButton*)   gtk_builder_get_object(builder, "nextBtn");
-  stack    = (GtkStack*)    gtk_builder_get_object(builder, "stack");
-  termView = (GtkViewport*) gtk_builder_get_object(builder, "termView");
-  term     = (VteTerminal*) vte_terminal_new();
+  builder         = (GtkBuilder*)    gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui");
+  window          = (GtkWindow*)     gtk_builder_get_object(builder, "window");
+  exitBtn         = (GtkButton*)     gtk_builder_get_object(builder, "exitBtn");
+  backBtn         = (GtkButton*)     gtk_builder_get_object(builder, "backBtn");
+  nextBtn         = (GtkButton*)     gtk_builder_get_object(builder, "nextBtn");
+  stack           = (GtkStack*)      gtk_builder_get_object(builder, "stack");
+  deskImgStack    = (GtkStack*)      gtk_builder_get_object(builder, "deskImgStack");
+  deskImgSwitcher = (GtkListBox*)    gtk_builder_get_object(builder, "deskImgSwitcher");
+  deskRow1        = (GtkListBoxRow*) gtk_builder_get_object(builder, "deskRow1");
+  header          = (GtkHeaderBar*)  gtk_builder_get_object(builder, "stack");
+  termView        = (GtkViewport*)   gtk_builder_get_object(builder, "termView");
+  term            = (VteTerminal*)   vte_terminal_new();
   spawnShell(term, 0, NULL);
 
   gtk_container_add((GtkContainer*) termView, (GtkWidget*) term);
+  gtk_stack_set_visible_child_name(deskImgStack, "deskRow1");
+  gtk_list_box_select_row(deskImgSwitcher, deskRow1);
 
   g_signal_connect(exitBtn, "clicked", (GCallback) exitBtn_clicked, NULL);
-  g_signal_connect(backBtn, "clicked", (GCallback) switchPage, NULL);
-  g_signal_connect(nextBtn, "clicked", (GCallback) switchPage, NULL);
+  g_signal_connect(backBtn, "clicked", (GCallback) mainPageSwitcher, NULL);
+  g_signal_connect(nextBtn, "clicked", (GCallback) mainPageSwitcher, NULL);
+  g_signal_connect(deskImgSwitcher, "row-selected", (GCallback) deskImgOnSwitch, NULL);
   g_signal_connect(term, "child-exited", (GCallback) spawnShell, NULL);
 
   gtk_widget_show_all((GtkWidget*) window);
