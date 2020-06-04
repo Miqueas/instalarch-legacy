@@ -447,6 +447,62 @@
               </packing>
             </child>
             <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_start">80</property>
+                <property name="margin_end">80</property>
+                <property name="spacing">10</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Memoria Swap:</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <items>
+                      <item translatable="yes">No deseo</item>
+                      <item translatable="yes">2 GB</item>
+                      <item translatable="yes">4 GB</item>
+                      <item translatable="yes">8 GB</item>
+                      <item translatable="yes">Otra cantidad</item>
+                    </items>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry">
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkRadioButton">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -488,26 +544,13 @@
                         <property name="position">1</property>
                       </packing>
                     </child>
-                    <child>
-                      <object class="GtkButton">
-                        <property name="label" translatable="yes">Abrir GParted</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
                   </object>
                 </child>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">3</property>
+                <property name="position">4</property>
               </packing>
             </child>
           </object>
@@ -524,12 +567,37 @@
             <property name="orientation">vertical</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Asignación de particiones&lt;/span&gt;</property>
-                <property name="use_markup">True</property>
-                <property name="xalign">0</property>
+                <property name="spacing">10</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Asignación de particiones&lt;/span&gt;</property>
+                    <property name="use_markup">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="label" translatable="yes">Abrir GParted</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="pack_type">end</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -591,6 +659,20 @@
                       </packing>
                     </child>
                     <child>
+                      <object class="GtkButton">
+                        <property name="label" translatable="yes">Actualizar lista de particiones</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="pack_type">end</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
                       <object class="GtkComboBoxText">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -604,7 +686,7 @@
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">1</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                     <child>
@@ -617,7 +699,7 @@
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">2</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                   </object>
@@ -749,7 +831,8 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Rellene los datos en las siguientes casillas para poder configurar su usuario y contraseña y la contraseña administrativa. &lt;span font_weight="bold"&gt;No se permiten tildes, mayúsculas ni carácteres especiales&lt;/span&gt; (como !@#$-?¡¿[*+~ entre otros).</property>
+                <property name="label" translatable="yes">Rellene los datos en las siguientes casillas para poder configurar su usuario y contraseña y la contraseña administrativa.
+&lt;span font_weight="bold"&gt;No se permiten tildes, mayúsculas ni carácteres especiales&lt;/span&gt; (como !@#$-?¡¿[*+~ entre otros).</property>
                 <property name="use_markup">True</property>
                 <property name="wrap">True</property>
                 <property name="xalign">0</property>
@@ -1215,32 +1298,228 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="row_spacing">10</property>
+                <property name="column_spacing">10</property>
+                <property name="column_homogeneous">True</property>
                 <child>
-                  <placeholder/>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Driver de Vídeo:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Touchpad:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Audio del sistema:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Bluetooth:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">1</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">1</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Particionador:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Navegador web:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Ofimática:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Shell:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">AUR Helper:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Firewall de red:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">4</property>
+                  </packing>
                 </child>
               </object>
               <packing>
@@ -1278,7 +1557,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Utilidades de lectura y escritura de discos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1292,7 +1571,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Utilidades para compresión y descompresión de archivos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1306,7 +1585,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Códecs de vídeo y audio</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1320,7 +1599,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">VLC (reproductor de vídeo)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1334,7 +1613,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Telegram</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1348,7 +1627,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Spotify</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1362,7 +1641,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Nuclear Player (reproductor de audio)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1376,7 +1655,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Audacious (reproductor de audio)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1390,7 +1669,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Audacity (editor de audio)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1404,7 +1683,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Olive Video Editor (editor de vídeo)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1418,7 +1697,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">GIMP (editor de imágenes)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1432,7 +1711,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Inkscape (editor de gráficos vectoriales)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1446,7 +1725,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Sublime Text 3</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1460,7 +1739,7 @@
             </child>
             <child>
               <object class="GtkCheckButton">
-                <property name="label" translatable="yes">checkbutton</property>
+                <property name="label" translatable="yes">Visual Studio Code</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
