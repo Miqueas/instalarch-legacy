@@ -81,7 +81,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="welcomeTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;¡Bienvenido a Arch Linux!&lt;/span&gt;</property>
@@ -94,7 +94,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="welcomeSummary">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Este asistente gráfico le ayudará a instalar correctamente Arch Linux en su computador</property>
@@ -106,7 +106,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage">
+              <object class="GtkImage" id="welcomeArchLogo">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="pixbuf">../images/welcome-logo.png</property>
@@ -118,7 +118,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="welcomeCreditsLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="large" font_weight="bold"&gt;Créditos:&lt;/span&gt;</property>
@@ -137,7 +137,7 @@
                 <property name="row_homogeneous">True</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="welcomeCreditsInterfaceTitle">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">&lt;span font_weight="bold"&gt;Interfaz:&lt;/span&gt;</property>
@@ -149,7 +149,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="welcomeCreditsCodeTitle">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">&lt;span font_weight="bold"&gt;Código:&lt;/span&gt;</property>
@@ -161,7 +161,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="welcomeCreditsMiqueas">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Miqueas Martinez</property>
@@ -172,7 +172,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="welcomeCreditsChristopher">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Christopher Alvarado</property>
@@ -190,7 +190,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="welcomeTelegramLink">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="label" translatable="yes">&lt;span font_weight="bold"&gt;Visita: &lt;a href="https://t.me/ArchLinuxCristo"&gt;t.me/ArchLinuxCristo&lt;/a&gt;&lt;/span&gt;</property>
@@ -215,7 +215,7 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="langTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Configuración de idioma&lt;/span&gt;</property>
@@ -232,8 +232,6 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">40</property>
-                <property name="margin_right">40</property>
                 <property name="margin_start">40</property>
                 <property name="margin_end">40</property>
                 <property name="margin_top">40</property>
@@ -242,7 +240,7 @@
                 <property name="column_spacing">10</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="langInstallerLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Idioma del Instalador</property>
@@ -254,7 +252,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="langInstallerCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="active">0</property>
@@ -269,7 +267,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="langSystemLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Idioma del Sistema</property>
@@ -281,7 +279,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="langSystemCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -291,7 +289,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="langTerminalLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Idioma de la Terminal</property>
@@ -303,7 +301,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="langTerminalCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -320,7 +318,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="langTimeZoneLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Ubicación detectada: &lt;span font_weight="bold"&gt;America/Colombia&lt;/span&gt;</property>
@@ -346,7 +344,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="diskTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Selección de discos&lt;/span&gt;</property>
@@ -360,13 +358,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="diskColumnsSelection">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">10</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="diskSelectLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Disco:</property>
@@ -378,7 +376,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="diskSelectCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -396,7 +394,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkRadioButton" id="radiobutton1">
+              <object class="GtkRadioButton" id="diskEraseAll">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -447,14 +445,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="diskColumnsSwap">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_start">80</property>
                 <property name="margin_end">80</property>
                 <property name="spacing">10</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="diskSwapLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Memoria Swap:</property>
@@ -466,7 +464,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="diskSwapCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <items>
@@ -484,7 +482,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="diskSwapInput">
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
@@ -503,14 +501,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkRadioButton">
+              <object class="GtkRadioButton" id="diskGparted">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="margin_start">40</property>
                 <property name="margin_end">40</property>
                 <property name="draw_indicator">True</property>
-                <property name="group">radiobutton1</property>
+                <property name="group">diskEraseAll</property>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
@@ -572,7 +570,7 @@
                 <property name="can_focus">False</property>
                 <property name="spacing">10</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="partitionsTitle">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Asignación de particiones&lt;/span&gt;</property>
@@ -585,7 +583,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="partitionsBtnGparted">
                     <property name="label" translatable="yes">Abrir GParted</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -606,7 +604,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="partitionsMessage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">A continuación, puede seleccionar las particiones/puntos de montajes que usará con Arch Linux. Si no se muestra ningún tipo de información, deberá reiniciar el instalador.</property>
@@ -626,11 +624,26 @@
                 <property name="orientation">vertical</property>
                 <property name="spacing">10</property>
                 <child>
-                  <object class="GtkTreeView">
+                  <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <child internal-child="selection">
-                      <object class="GtkTreeSelection"/>
+                    <property name="propagate_natural_width">True</property>
+                    <property name="propagate_natural_height">True</property>
+                    <child>
+                      <object class="GtkViewport">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="shadow_type">none</property>
+                        <child>
+                          <object class="GtkTreeView" id="partitionsListView">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <child internal-child="selection">
+                              <object class="GtkTreeSelection"/>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
                     </child>
                   </object>
                   <packing>
@@ -645,7 +658,7 @@
                     <property name="can_focus">False</property>
                     <property name="spacing">10</property>
                     <child>
-                      <object class="GtkCheckButton">
+                      <object class="GtkCheckButton" id="partitionsDualBoot">
                         <property name="label" translatable="yes">Dual Boot (Windows)</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -659,7 +672,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="partitionsUpdateList">
                         <property name="label" translatable="yes">Actualizar lista de particiones</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -673,7 +686,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkComboBoxText">
+                      <object class="GtkComboBoxText" id="partitionsGrubCombo">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <items>
@@ -690,7 +703,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel">
+                      <object class="GtkLabel" id="partitionsGrubLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Instalar GRUB:</property>
@@ -814,7 +827,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="userTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Usuario y contraseñas&lt;/span&gt;</property>
@@ -828,7 +841,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="userIndications">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Rellene los datos en las siguientes casillas para poder configurar su usuario y contraseña y la contraseña administrativa.
@@ -854,7 +867,7 @@
                 <property name="row_homogeneous">True</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="userNameLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Usuario:</property>
@@ -866,7 +879,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="userNameInput">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -876,7 +889,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="userPassLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Contraseña</property>
@@ -888,7 +901,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="userPassInput">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -898,7 +911,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="userPassConfirmLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Repita la contraseña:</property>
@@ -910,7 +923,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="userPassConfirmInput">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -920,7 +933,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="userRootPassLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Contraseña de Root</property>
@@ -932,7 +945,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="userRootPassInput">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -942,7 +955,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="userRootPassConfirmLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Repita la contraseña de Root</property>
@@ -954,7 +967,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="userRootPassConfirmInput">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -964,7 +977,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="userHostNameLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Nombre del computador (hostname):</property>
@@ -976,7 +989,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="userHostNameInput">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -993,7 +1006,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="userNotes">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span font_weight="bold"&gt;Consejo&lt;/span&gt;: la contraseña de Root debería ser diferente de la contraseña de usuario.
@@ -1025,7 +1038,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="desktopTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Selección de entorno de scritorio o gestor de ventanas&lt;/span&gt;</property>
@@ -1044,7 +1057,7 @@
                 <property name="can_focus">False</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkRadioButton">
+                  <object class="GtkRadioButton" id="desktopDE">
                     <property name="label" translatable="yes">Entorno de Escritorio
 (Recomendado para nuevos usuarios)</property>
                     <property name="visible">True</property>
@@ -1062,7 +1075,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton">
+                  <object class="GtkRadioButton" id="desktopWM">
                     <property name="label" translatable="yes">Gestor de Ventanas
 (No recomendado para nuevos usuarios)</property>
                     <property name="visible">True</property>
@@ -1093,7 +1106,7 @@
                 <property name="spacing">20</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="desktopSelectLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">end</property>
@@ -1107,7 +1120,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="desktopSelectCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
@@ -1150,13 +1163,13 @@
                         <property name="can_focus">False</property>
                         <property name="shadow_type">none</property>
                         <child>
-                          <object class="GtkListBox" id="deskImgSwitcher">
+                          <object class="GtkListBox" id="desktopImgSwitcher">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="valign">center</property>
                             <child>
-                              <object class="GtkListBoxRow" id="deskRow1">
-                                <property name="name">deskRow1</property>
+                              <object class="GtkListBoxRow" id="desktopImgSwitch1">
+                                <property name="name">desktopImgSwitch1</property>
                                 <property name="width_request">140</property>
                                 <property name="height_request">100</property>
                                 <property name="visible">True</property>
@@ -1171,8 +1184,8 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkListBoxRow" id="deskRow2">
-                                <property name="name">deskRow2</property>
+                              <object class="GtkListBoxRow" id="desktopImgSwitch2">
+                                <property name="name">desktopImgSwitch2</property>
                                 <property name="width_request">140</property>
                                 <property name="height_request">100</property>
                                 <property name="visible">True</property>
@@ -1187,8 +1200,8 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkListBoxRow" id="deskRow3">
-                                <property name="name">deskRow3</property>
+                              <object class="GtkListBoxRow" id="desktopImgSwitch3">
+                                <property name="name">desktopImgSwitch3</property>
                                 <property name="width_request">140</property>
                                 <property name="height_request">100</property>
                                 <property name="visible">True</property>
@@ -1214,41 +1227,41 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkStack" id="deskImgStack">
+                  <object class="GtkStack" id="desktopImgStack">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="transition_type">slide-up-down</property>
                     <child>
-                      <object class="GtkImage">
+                      <object class="GtkImage" id="desktopImg1">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="stock">gtk-missing-image</property>
                       </object>
                       <packing>
-                        <property name="name">deskRow1</property>
+                        <property name="name">desktopImg1</property>
                         <property name="title" translatable="yes">page0</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage">
+                      <object class="GtkImage" id="desktopImg2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="stock">gtk-missing-image</property>
                       </object>
                       <packing>
-                        <property name="name">deskRow2</property>
+                        <property name="name">desktopImg2</property>
                         <property name="title" translatable="yes">page1</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage">
+                      <object class="GtkImage" id="desktopImg3">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="stock">gtk-missing-image</property>
                       </object>
                       <packing>
-                        <property name="name">deskRow3</property>
+                        <property name="name">desktopImg3</property>
                         <property name="title" translatable="yes">page2</property>
                         <property name="position">2</property>
                       </packing>
@@ -1281,7 +1294,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="softwareTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Selección de Software&lt;/span&gt;</property>
@@ -1302,7 +1315,7 @@
                 <property name="column_spacing">10</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareDriverVideoLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Driver de Vídeo:</property>
@@ -1314,7 +1327,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareDriverVideoCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1324,7 +1337,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareTouchpadLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Touchpad:</property>
@@ -1336,7 +1349,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareTouchpadCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1346,7 +1359,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareAudioLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Audio del sistema:</property>
@@ -1358,7 +1371,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareAudioCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1368,7 +1381,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareBluetoothLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Bluetooth:</property>
@@ -1380,7 +1393,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareBluetoothCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1390,7 +1403,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareDiskManagerLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Particionador:</property>
@@ -1402,7 +1415,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareDiskManagerCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1412,7 +1425,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareWebLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Navegador web:</property>
@@ -1424,7 +1437,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareWebCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1434,7 +1447,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareOfficeLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Ofimática:</property>
@@ -1446,7 +1459,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareOfficeCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1456,7 +1469,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareShellLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Shell:</property>
@@ -1468,7 +1481,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareShellCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1478,7 +1491,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareAURLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">AUR Helper:</property>
@@ -1490,7 +1503,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareAURCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1500,7 +1513,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="softwareFirewallLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Firewall de red:</property>
@@ -1512,7 +1525,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
+                  <object class="GtkComboBoxText" id="softwareFirewallCombo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                   </object>
@@ -1542,7 +1555,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="extrasTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Extras y utilidades&lt;/span&gt;</property>
@@ -1556,7 +1569,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasUtilitiesDisks">
                 <property name="label" translatable="yes">Utilidades de lectura y escritura de discos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1570,7 +1583,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasUtilitiesArchive">
                 <property name="label" translatable="yes">Utilidades para compresión y descompresión de archivos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1584,7 +1597,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasCodecs">
                 <property name="label" translatable="yes">Códecs de vídeo y audio</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1598,7 +1611,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasVLC">
                 <property name="label" translatable="yes">VLC (reproductor de vídeo)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1612,7 +1625,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasTelegram">
                 <property name="label" translatable="yes">Telegram</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1626,7 +1639,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasSpotify">
                 <property name="label" translatable="yes">Spotify</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1640,7 +1653,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasNuclear">
                 <property name="label" translatable="yes">Nuclear Player (reproductor de audio)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1654,7 +1667,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasAudacious">
                 <property name="label" translatable="yes">Audacious (reproductor de audio)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1668,7 +1681,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasAudacity">
                 <property name="label" translatable="yes">Audacity (editor de audio)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1682,7 +1695,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasOlive">
                 <property name="label" translatable="yes">Olive Video Editor (editor de vídeo)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1696,7 +1709,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasGIMP">
                 <property name="label" translatable="yes">GIMP (editor de imágenes)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1710,7 +1723,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasInkscape">
                 <property name="label" translatable="yes">Inkscape (editor de gráficos vectoriales)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1724,7 +1737,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasSublimeText">
                 <property name="label" translatable="yes">Sublime Text 3</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1738,7 +1751,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton">
+              <object class="GtkCheckButton" id="extrasVSCode">
                 <property name="label" translatable="yes">Visual Studio Code</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1765,7 +1778,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="termTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Progreso de la Instalación&lt;/span&gt;</property>
@@ -1815,7 +1828,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="endTitle">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">&lt;span size="xx-large" font_weight="bold"&gt;Instalación finalizada&lt;/span&gt;</property>
@@ -1828,7 +1841,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="endSummary">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Arch Linux se ha instalado correctamente en su computador, puede cerrar este instalador y reiniciar para empezar a usar Arch Linux.</property>
@@ -1841,7 +1854,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage">
+              <object class="GtkImage" id="endArchLogo">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="pixbuf">../images/welcome-logo.png</property>

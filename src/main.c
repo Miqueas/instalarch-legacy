@@ -52,9 +52,9 @@ void mainPageSwitcher(GtkButton *btn, gpointer gparted) {
 void deskImgOnSwitch(GtkListBox *box, GtkListBoxRow *row, gpointer data) {
   const gchar *rowName = gtk_widget_get_name((GtkWidget*) row); // Nombre de la celda seleccionada
 
-  if (g_strcmp0(rowName, "deskRow1") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "deskRow1");
-  } else if (g_strcmp0(rowName, "deskRow2") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "deskRow2");
-  } else if (g_strcmp0(rowName, "deskRow3") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "deskRow3"); }
+  if (g_strcmp0(rowName, "desktopImgSwitch1") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "desktopImg1");
+  } else if (g_strcmp0(rowName, "desktopImgSwitch2") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "desktopImg2");
+  } else if (g_strcmp0(rowName, "desktopImgSwitch3") == 0) { gtk_stack_set_visible_child_name(deskImgStack, "desktopImg3"); }
 }
 
 // Esta función es llamada cuando el botón "Salir" es clickeado
@@ -114,8 +114,8 @@ void appActivate(GtkApplication *app, gpointer data) {
   backBtn         = (GtkButton*)     gtk_builder_get_object(builder, "backBtn");
   nextBtn         = (GtkButton*)     gtk_builder_get_object(builder, "nextBtn");
   stack           = (GtkStack*)      gtk_builder_get_object(builder, "stack");
-  deskImgStack    = (GtkStack*)      gtk_builder_get_object(builder, "deskImgStack");
-  deskImgSwitcher = (GtkListBox*)    gtk_builder_get_object(builder, "deskImgSwitcher");
+  deskImgStack    = (GtkStack*)      gtk_builder_get_object(builder, "desktopImgStack");
+  deskImgSwitcher = (GtkListBox*)    gtk_builder_get_object(builder, "desktopImgSwitcher");
   deskRow1        = (GtkListBoxRow*) gtk_builder_get_object(builder, "deskRow1");
   header          = (GtkHeaderBar*)  gtk_builder_get_object(builder, "stack");
   termView        = (GtkViewport*)   gtk_builder_get_object(builder, "termView");
@@ -125,7 +125,7 @@ void appActivate(GtkApplication *app, gpointer data) {
   // Añadimos el widget de la terminal en la página "Progreso de la instalación"
   gtk_container_add((GtkContainer*) termView, (GtkWidget*) term);
   // Establecemos la página visible por defecto en la vista de previews de escritorios
-  gtk_stack_set_visible_child_name(deskImgStack, "deskRow1");
+  gtk_stack_set_visible_child_name(deskImgStack, "desktopImg1");
   // Esto es para hacer coincidir la celda seleccionada con la página activa
   gtk_list_box_select_row(deskImgSwitcher, deskRow1);
 
