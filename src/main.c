@@ -1,5 +1,6 @@
 #include <gtk/gtk.h> // No es necesario incluir GLib ni nada más en particular, ya que GTK incluye
 #include <vte/vte.h> // todas esas cosas.
+#define Length(arr) (sizeof (arr) / sizeof ((arr)[0]))
 
 /*
  * Preferiblemente, declaramos variables antes que cualquier cosa. Nótese que normalmente (o por lo
@@ -36,10 +37,10 @@ const gchar *stackPages[] = { "welcome", "language", "disk", "partitions", "user
 // "Siguiente") usan esta función.
 void mainPageSwitcher(GtkButton *btn, gpointer gparted) {
   const gchar *page    = gtk_stack_get_visible_child_name(stack); // La página visible actualmente
-  const gchar *btnName = gtk_widget_get_name((GtkWidget*) btn); // Nombre del botón clickeado
+  const gchar *btnName = gtk_widget_get_name((GtkWidget*) btn);   // Nombre del botón clickeado
   gint iter = 0;
 
-  for (iter; iter < G_N_ELEMENTS(stackPages); iter++) {
+  for (iter; iter < Length(stackPages); iter++) {
     if (g_strcmp0(page, stackPages[iter]) == 0) {
       if (g_strcmp0(btnName, "backBtn") == 0) gtk_stack_set_visible_child_name(stack, stackPages[iter - 1]);
       if (g_strcmp0(btnName, "nextBtn") == 0) gtk_stack_set_visible_child_name(stack, stackPages[iter + 1]);
@@ -60,7 +61,7 @@ void deskImgOnSwitch(GtkListBox *box, GtkListBoxRow *row, gpointer data) {
 // Esta función es llamada cuando el botón "Salir" es clickeado
 void exitBtn_clicked(GtkButton *btn, gpointer data) {
   exitDialog = (GtkMessageDialog*) gtk_builder_get_object(builder, "exitDialog");
-  int res = gtk_dialog_run(GTK_DIALOG(exitDialog));
+  int res = gtk_dialog_run((GtkDialog*) exitDialog);
 
   switch (res) {
     case GTK_RESPONSE_OK:
@@ -71,7 +72,7 @@ void exitBtn_clicked(GtkButton *btn, gpointer data) {
       gtk_widget_hide((GtkWidget*) exitDialog);
       break;
     default:
-      printf("No action for %d\n", res);
+      g_print("No action for %d\n", res);
       break;
   }
 }
@@ -108,7 +109,7 @@ void spawnShell(VteTerminal *term, gint status, gpointer data) {
 // básicamente el cuerpo principal de todo el programa.
 void appActivate(GtkApplication *app, gpointer data) {
   // Cargamos la interfaz y asignamos los objetos
-  builder         = (GtkBuilder*)    gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui");
+  builder         =                  gtk_builder_new_from_file("data/ui/instalarch-concept-2.ui");
   window          = (GtkWindow*)     gtk_builder_get_object(builder, "window");
   exitBtn         = (GtkButton*)     gtk_builder_get_object(builder, "exitBtn");
   backBtn         = (GtkButton*)     gtk_builder_get_object(builder, "backBtn");
